@@ -1,0 +1,12 @@
+.article {
+    width: 90%;
+    background-color: pink;
+    margin: 5px;
+    /* display: flex;
+    flex-direction: column; */
+}
+
+.article p {
+    margin: 0;
+    padding: 0;
+}
