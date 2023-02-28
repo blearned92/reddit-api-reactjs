@@ -1,0 +1,20 @@
+.home {
+    /* border: 2px solid black; */
+}
+
+.home-content {
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+}
+
+.home-right {
+    width: 300px;
+    margin: 10px;
+}
+
+.home-left {
+    margin: 10px;
+    width: 570px;
+}

@@ -53,10 +53,14 @@ const SearchBar = () => {
         dispatch(resetState());
     }
 
+    const home = () => {
+        navigate("/");
+    }
+
     return (
         <div className="search-wrapper">
             <header className="search">
-                <p>Home</p>
+                <p onClick={home}>Home</p>
                 <ul>
                     <li className="searchbar">
                         <input type="text" placeholder="Search" value={term} onChange={handleChange}/>

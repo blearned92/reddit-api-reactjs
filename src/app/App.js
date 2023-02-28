@@ -1,26 +1,24 @@
-import React, {useState, useEffect} from "react";
-import { useSelector } from "react-redux";
+import React from "react";
 import {
-  BrowserRouter as Router,
   Routes,
   Route,
 } from "react-router-dom";
-import ROUTES from "./routes";
+
+//components
 import SearchBar from "../features/search/search";
 import Utility from "../components/NavBar/nav";
-import Home from "../components/Home/home";
+import Home from "../features/home/home";
 import SubReddit from "../components/SubReddit/subReddit";
 
 function App() {
-
 
   return (
     <div className="App">
       <SearchBar/>
       {/* <Utility/> */}
       <Routes>
+        <Route exact path="/" element={<Home/>}/>
         <Route path="/r/:subreddit" element={<SubReddit />}/>
-        <Route path="/" element={<Home/>}/>
       </Routes>
     </div>
   );

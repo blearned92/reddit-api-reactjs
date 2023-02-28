@@ -1,0 +1,25 @@
+.trending-card {
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+}
+
+.trending-card:hover {
+    background-color: gray;
+    cursor: pointer;
+}
+
+.trending-card img {
+    height: 40px;
+    width: 40px;
+    border-radius: 100px;
+}
+
+.trending-card .container {
+    padding: 10px;
+    text-align: left;
+}
+
+.trending-card p {
+    margin: 0;
+}

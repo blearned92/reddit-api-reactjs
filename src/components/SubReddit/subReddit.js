@@ -1,37 +1,52 @@
-import Feed from "../../features/feed/feed";
-import {baseURL} from "../../common/API";
-import { useSelector } from "react-redux";
-import { selectSubReddit } from "../../features/search/searchSlice";
 import "./subReddit.css";
-
+import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
+import { useDispatch,useSelector } from "react-redux";
+import { setPosts, selectPosts } from "../../features/posts/postsSlice";
+import Reddit from "../../app/Reddit";
+import Posts from "../../features/posts/posts";
+import Trending from "../Trending/trending";
+import AboutCommunity from "./about";
+import Banner from "./subRedditBanner";
 
 const SubReddit = () => {
-    const subReddit = useSelector(selectSubReddit);
-    const subRedditurl = baseURL + subReddit.url + ".json";
+    const {pathname} = useLocation();
+    const dispatch = useDispatch();
+    const posts = useSelector(selectPosts);
+    const [subReddit, setSubReddit] = useState({});
+
+    const fetchSubRedditPosts = async () => {
+        console.log(pathname)
+        const posts = await Reddit.fetchSubredditPosts(pathname);
+        dispatch(setPosts({posts: posts}))
+    }
+
+    const fetchSubRedditAbout = async () => {
+        const response = await Reddit.fetchSubredditAbout(pathname.substring(0, pathname.length-1));
+        // console.log(response)
+        setSubReddit(response);
+    }
+
+    useEffect(()=>{
+        fetchSubRedditPosts();
+        fetchSubRedditAbout();
+    }, [pathname])
 
     return (
-    <div>
-        {subReddit.banner_background_image &&
-        <div className="banner"
-        style={{
-            color: "white", 
-            width: "100%",
-            height: 384,
-            backgroundImage: `url(${subReddit.banner_background_image.split("?")[0]})`,
-            
-        }}
-        />
-        }
-        <div className="title">
-            <img className="icon" src={subReddit.community_icon.split("?")[0]}/>
-            <div className="titles">
-                <h1>{subReddit.title}</h1>
-                <p>{subReddit.url.substr(1, subReddit.url.length-2)}</p>
+    <div className="subReddit">
+        {console.log(subReddit)}
+        <Banner subReddit={subReddit}/>
+        <div className="home-content">
+            <div className="home-left">
+                {/* //hot/new/etc */}
+                <Posts posts={posts}/>
             </div>
-        </div>
-        <div className="section">
-            <Feed url={subRedditurl}/>
-            <div className="community-info">About</div>
+            <div className="home-right">
+                <AboutCommunity subReddit={subReddit}/>
+                {/* //rules 
+                //related subreddits?*/}
+                <Trending/>
+            </div>
         </div>
     </div>
     )
