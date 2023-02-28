@@ -1,5 +1,4 @@
 import "./trendingCard.css";
-import logo from "../../images/reddit-logo.png";
 
 const TrendingCard = (props) => {
     return (

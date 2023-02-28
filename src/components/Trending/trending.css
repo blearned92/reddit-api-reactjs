@@ -1,3 +1,4 @@
 .trending{
-    border: 2px solid black;
+    border: 1px solid black;
+    box-shadow: 5px 1px 15px -5px black;
 }

@@ -2,10 +2,12 @@
     display: flex;
     align-items: center;
     padding: 0 10px;
+    margin: 0 10px;
+    border-bottom: 1px solid black;
 }
 
 .trending-card:hover {
-    background-color: gray;
+    background-color: whitesmoke;
     cursor: pointer;
 }
 
@@ -13,6 +15,17 @@
     height: 40px;
     width: 40px;
     border-radius: 100px;
+}
+
+.trending-card:active img {
+    height: 39px;
+    width: 39px;
+    border-radius: 100px;
+}
+
+.trending-card:active p {
+    font-size: 15px;
+    margin-top: 1px;
 }
 
 .trending-card .container {
