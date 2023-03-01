@@ -8,3 +8,7 @@
     padding: 15px;
     margin: 0px;
 }
+
+.trending div:last-child .trending-card{
+    border-bottom:0px;
+}

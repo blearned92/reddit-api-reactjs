@@ -2,7 +2,11 @@ import "./postCards.css";
 import { useEffect, useState } from "react";
 import Reddit from "../../app/Reddit";
 import logo from "../../images/reddit-logo.png";
-
+import ChatBubbleSharpIcon from '@mui/icons-material/ChatBubbleSharp';import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
+import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
+import ShareSharpIcon from '@mui/icons-material/ShareSharp';
+import BookmarkSharpIcon from '@mui/icons-material/BookmarkSharp';
+import MoreHorizSharpIcon from '@mui/icons-material/MoreHorizSharp';
 
 const PostCard = ({post}) => {
 
@@ -40,11 +44,12 @@ const PostCard = ({post}) => {
                 }
                 <div className="postCard-content">
                     <p>{post.subreddit_name_prefixed}</p>
-                    <p>u/{post.author} - {roundTime(post.created_utc)}</p>
+                    <p>u/{post.author} &#9702; {roundTime(post.created_utc)}</p>
                 </div>
             </div>
             <div className="postCard-body">
-                <h3 className="">{post.title}</h3>
+                
+                <h3 className="postCard-body-title">{post.title}</h3>
                 <div className="postCard-fakeContent"> FAKE CONTENT</div>
                 {/* {props.post.url_overridden_by_dest && (
                     <div className="postCard-post-image" onError={(e) => e.target.style.display = "none"}>
@@ -55,9 +60,15 @@ const PostCard = ({post}) => {
                 )} */}
             </div>
             <div className="postCard-footer">
-                
-
-
+                <p>
+                    <ArrowUpwardIcon style={{height: 18}}/>
+                    {post.score > 1000 ? (post.score / 1000).toFixed(1) + 'k' : post.score}
+                    <ArrowDownwardIcon style={{height: 18}}/>
+                </p>
+                <p><ChatBubbleSharpIcon style={{height: 18}}/>{post.num_comments} Comments</p>
+                <p><ShareSharpIcon/></p>
+                <p><BookmarkSharpIcon/></p>
+                <p><MoreHorizSharpIcon/></p>
             </div>
 
             {/* <p>{props.post.url}</p> */}
