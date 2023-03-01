@@ -32,7 +32,10 @@
     padding: 10px;
     text-align: left;
 }
-
 .trending-card p {
+    margin: 0;
+}
+
+.trending-card h5 {
     margin: 0;
 }

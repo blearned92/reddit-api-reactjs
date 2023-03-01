@@ -28,6 +28,7 @@ const Trending = () => {
     }
 
     return(<div className="trending">
+        <h4 className="trending-featured">Featured Subreddits</h4>
         { 
             trending.map((sub, index)=>{
                 return(

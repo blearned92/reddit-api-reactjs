@@ -9,7 +9,7 @@ const TrendingCard = (props) => {
                 : <img src={props.subReddit.data.icon_img}/>
             }
             <div className="container">
-                <p>{props.subReddit.data.display_name_prefixed}</p>
+                <h5>{props.subReddit.data.display_name_prefixed}</h5>
                 <p>Subscribers: {props.subReddit.data.subscribers.toLocaleString("en-US")}</p>
             </div>
         </div>
