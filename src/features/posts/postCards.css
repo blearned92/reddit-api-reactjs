@@ -1,11 +1,15 @@
 .postCard {
-    border: 2px solid black;
+    box-shadow: 5px 1px 15px -5px black;
+    border-radius: 5px;
     margin-bottom: 10px;
 }
 
 .postCard-header {
+    background-color: whitesmoke;
+    border-radius: 5px 5px 0 0;
     display: flex;
-    border-bottom: 2px solid black;
+    border-bottom: 1px solid gray;
+    padding: 7px 15px;
 }
 
 .postCard-header img {
@@ -19,6 +23,7 @@
     flex-direction: column;
     align-items: flex-start;
     margin: 5px;
+    padding-left: 10px;
 }
 
 .postCard-header .postCard-content p{
@@ -42,4 +47,42 @@
     align-items: center;
 }
 
+.postCard-body-title {
+    text-align: left;
+    padding: 0 15px;
+    margin: 5px;
+    font-weight: 500;
+}
 
+
+.postCard-footer {
+    display: flex;
+    border-top: 1px solid gray;
+    padding-left: 15px;
+}
+
+.postCard-footer p{
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+    font-size: 12px;
+    border: 1px solid orangered;
+    border-right: 0px;
+    padding: 5px 10px;
+    color: orangered;
+}
+
+.postCard-footer p:hover{
+    background-color: orangered;
+    color: white;
+    cursor: pointer;
+}
+
+.postCard-footer p:first-child{
+    border-radius: 10px 0 0 10px;
+}
+
+.postCard-footer p:last-child{
+    border-radius: 0 10px 10px 0;
+    border-right: 1px solid orangered;
+}
