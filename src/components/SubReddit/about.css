@@ -1,10 +1,61 @@
 .about {
-    border: 2px solid black;
     margin-bottom: 10px;
+    box-shadow: 5px 1px 15px -5px black;
+    border-radius: 5px;
 }
+
 
 .about-banner {
     width: 100%;
     height: 100px;
     /* height: 150px; */
+}
+
+.about-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.about-top h4 {
+    text-align: left;
+    padding: 15px;
+    margin: 0px;
+}
+
+.about-top p {
+    font-size: 14px;
+    padding: 5px 10px;
+    color: green;
+    border: 2px solid green;
+    border-radius: 30px;
+    margin-right: 10px;
+}
+
+.about-container {
+    display: flex;
+    justify-content: space-around;
+    margin: 0 10px;
+}
+
+.about-online {
+    color: lime;
+}
+
+.about-description {
+    text-align: left;
+    padding: 10px 15px 0 15px;
+    margin: 0;
+}
+
+
+.about-bottom {
+    text-align: left;
+    border-top: 1px solid lightgray;
+}
+
+.about-bottom p {
+    text-align: left;
+    margin: 0;
+    padding: 10px;
 }

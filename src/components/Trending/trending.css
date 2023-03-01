@@ -1,4 +1,10 @@
 .trending{
-    border: 1px solid black;
     box-shadow: 5px 1px 15px -5px black;
+    border-radius: 5px;
+}
+
+.trending-featured {
+    text-align: left;
+    padding: 15px;
+    margin: 0px;
 }
