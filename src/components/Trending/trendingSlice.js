@@ -1,9 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = {
-    trending: []
-}
-
 const trendingSlice = createSlice({
     name: "trending",
     initialState: {trending:[]},

@@ -1,18 +1,18 @@
 import "./home.css";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setPosts, selectPosts } from "../posts/postsSlice";
+import { setPosts, selectPosts } from "../Posts/postsSlice";
 import Reddit from "../../app/Reddit";
-import Posts from "../posts/posts";
-import Trending from "../../components/Trending/trending";
+import Posts from "../Posts/posts";
+import Trending from "../Trending/trending";
 
 const Home = () => {
 
     const dispatch = useDispatch();
     const posts = useSelector(selectPosts);
-    console.log("rendering home")
+    
     const fetchSubRedditPosts = async () => {
-        const posts = await Reddit.fetchSubredditPosts("r/popular");
+        const posts = await Reddit.fetchHomePosts();
         dispatch(setPosts({posts: posts}))
     }
 
@@ -21,9 +21,8 @@ const Home = () => {
     }, [])
 
     return (
-        //should render a feed on the right, and trending subs on left
     <div className="home">
-        <h1>Home</h1>
+        <h1>Reddit for Lurkers</h1>
         <div className="home-content">
             <div className="home-left">
                 <Posts posts={posts}/>
@@ -31,9 +30,7 @@ const Home = () => {
             <div className="home-right">
                 <Trending/>
             </div>
-        </div>
-        {/* <Feed url={homeUrl}/> */}
-       
+        </div>       
     </div>
     )
 }

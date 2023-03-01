@@ -58,7 +58,7 @@
     align-items: center;
     padding: 10px;
     height: 10px;
-    width: 250px;
+    width: 270px;
 }
 
 .searchbar input {
@@ -122,10 +122,8 @@
     padding: 10px
 }
 
-
 .search-menu-bar {
     width: 100px;
-    height: 100%;
 }
 
 .search-menu-bar-icon {
@@ -146,6 +144,7 @@
     box-shadow: 1px 8px 15px 0px black;
     color: white;
     padding: 5px;
+    width: 100px;
 }
 
 .search-menu-link:hover {

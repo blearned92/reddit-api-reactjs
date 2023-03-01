@@ -54,35 +54,50 @@
     font-weight: 500;
 }
 
-
 .postCard-footer {
     display: flex;
     border-top: 1px solid gray;
-    padding-left: 15px;
+    padding: 5px 10px;
 }
 
-.postCard-footer p{
+.postCard-footer i{
+    padding-right: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+}
+
+.postCard-footer-links {
+    display: flex;
+}
+
+.postCard-footer-links p{
     display: flex;
     align-items: center;
     font-weight: 700;
     font-size: 12px;
     border: 1px solid orangered;
     border-right: 0px;
-    padding: 5px 10px;
+    padding: 3px 5px;
     color: orangered;
 }
 
 .postCard-footer p:hover{
-    background-color: orangered;
-    color: white;
+    background-color: rgba(255, 69, 0, .1);
     cursor: pointer;
 }
 
-.postCard-footer p:first-child{
-    border-radius: 10px 0 0 10px;
+.postCard-footer p:active{
+    font-size: 11px;
 }
 
-.postCard-footer p:last-child{
-    border-radius: 0 10px 10px 0;
+.postCard-footer-links p:first-child{
+    border-radius: 5px 0 0 5px;
+}
+
+.postCard-footer-links p:last-child{
+    border-radius: 0 5px 5px 0;
     border-right: 1px solid orangered;
 }

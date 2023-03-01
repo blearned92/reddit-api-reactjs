@@ -7,11 +7,13 @@ import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import ShareSharpIcon from '@mui/icons-material/ShareSharp';
 import BookmarkSharpIcon from '@mui/icons-material/BookmarkSharp';
 import MoreHorizSharpIcon from '@mui/icons-material/MoreHorizSharp';
+import { useNavigate } from "react-router";
 
 const PostCard = ({post}) => {
 
     const [subRedditIcon, setSubRedditIcon] = useState(''); 
     const subredditName = post.subreddit_name_prefixed;
+    const navigate = useNavigate();
     
     useEffect(()=>{
         async function fetchSubRedditAbout(){
@@ -33,6 +35,11 @@ const PostCard = ({post}) => {
             return date.getMinutes() + ' minutes';
         }
     };
+
+    const handleCommentClick = async (e) => {
+        const commentPath = "/"+subredditName+"/comments/"+post.id;
+        navigate(commentPath);
+    }
 
     return (
         <div className="postCard">
@@ -60,15 +67,17 @@ const PostCard = ({post}) => {
                 )} */}
             </div>
             <div className="postCard-footer">
-                <p>
-                    <ArrowUpwardIcon style={{height: 18}}/>
+                <i>
+                    <ArrowUpwardIcon style={{height: 14}}/>
                     {post.score > 1000 ? (post.score / 1000).toFixed(1) + 'k' : post.score}
-                    <ArrowDownwardIcon style={{height: 18}}/>
-                </p>
-                <p><ChatBubbleSharpIcon style={{height: 18}}/>{post.num_comments} Comments</p>
-                <p><ShareSharpIcon/></p>
-                <p><BookmarkSharpIcon/></p>
-                <p><MoreHorizSharpIcon/></p>
+                    <ArrowDownwardIcon style={{height: 14}}/>
+                </i>
+                <div className="postCard-footer-links">
+                    <p onClick={handleCommentClick}><ChatBubbleSharpIcon style={{height: 18}}/>{post.num_comments} Comments</p>
+                    <p><ShareSharpIcon/></p>
+                    <p><BookmarkSharpIcon/></p>
+                    <p><MoreHorizSharpIcon/></p>
+                </div>
             </div>
 
             {/* <p>{props.post.url}</p> */}

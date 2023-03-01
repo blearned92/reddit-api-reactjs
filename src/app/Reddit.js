@@ -163,7 +163,7 @@ const RedditCall = {
     },
 
     async fetchSearchResults(term) {
-        return fetch(`${API}/search.json?q=${term}`, initialOptions)
+        return fetch(`${API}/subreddits/search.json?q=${term}`, initialOptions)
             .then(response => {
                 if (response.ok) {
                     return response.json();
