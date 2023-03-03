@@ -41,8 +41,7 @@ const Comments = () => {
 
     return(<>{
         isLoading ? <p>Loading...</p> :
-        <div className="home-content">
-            <div className="home-left">
+        <div>
                 <div className="post-section">
                         <div className="post-section-header">
                         {subReddit.community_icon ?
@@ -70,11 +69,6 @@ const Comments = () => {
                         })
                     }
                 </div>  
-            </div>
-            <div className="home-right">
-                <AboutCommunity subReddit={subReddit}/>
-                <Trending/>
-            </div>
         </div>
     }</>)
 }
