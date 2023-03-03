@@ -3,11 +3,10 @@ import PostCard from "./postCards";
 
 const Posts = ({posts}) => {
 
-    // console.log("rendering posts")
+    console.log(posts)
     return(<div className="posts">
     {
         posts.map((post, index)=>{
-            console.log(post)
             return(<div key={index}><PostCard post={post.data}/></div>)
         })
     }

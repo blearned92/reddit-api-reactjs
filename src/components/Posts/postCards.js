@@ -8,13 +8,15 @@ import ShareSharpIcon from '@mui/icons-material/ShareSharp';
 import BookmarkSharpIcon from '@mui/icons-material/BookmarkSharp';
 import MoreHorizSharpIcon from '@mui/icons-material/MoreHorizSharp';
 import { useNavigate } from "react-router";
+import PostPreview from "./postPreview";
+import { roundTime } from "../../helper/timeCalc";
 
 const PostCard = ({post}) => {
 
     const [subRedditIcon, setSubRedditIcon] = useState(''); 
     const subredditName = post.subreddit_name_prefixed;
     const navigate = useNavigate();
-    
+
     useEffect(()=>{
         async function fetchSubRedditAbout(){
             const response = await Reddit.fetchSubredditAbout(subredditName);
@@ -23,22 +25,8 @@ const PostCard = ({post}) => {
         fetchSubRedditAbout();
     },[subredditName])
 
-    const roundTime = t => {
-        const unixTimestamp = t;
-        const date = new Date(unixTimestamp * 1000);
-        const hours = date.getHours();
-        if (hours >= 24) {
-            return date.getDay() + 'd';
-        } else if (hours >= 1) {
-            return hours + 'h';
-        } else {
-            return date.getMinutes() + ' minutes';
-        }
-    };
-
     const handleCommentClick = async (e) => {
-        const commentPath = "/"+subredditName+"/comments/"+post.id;
-        navigate(commentPath);
+        navigate(post.permalink);
     }
 
     return (
@@ -55,16 +43,8 @@ const PostCard = ({post}) => {
                 </div>
             </div>
             <div className="postCard-body">
-                
                 <h3 className="postCard-body-title">{post.title}</h3>
-                <div className="postCard-fakeContent"> FAKE CONTENT</div>
-                {/* {props.post.url_overridden_by_dest && (
-                    <div className="postCard-post-image" onError={(e) => e.target.style.display = "none"}>
-                        <a href={props.post.url_overridden_by_dest} target="_blank" rel="noreferrer" >
-                            <img src={props.post.url_overridden_by_dest} alt="media" />
-                        </a>
-                    </div>
-                )} */}
+                <PostPreview post={post}/>
             </div>
             <div className="postCard-footer">
                 <i>
@@ -79,8 +59,6 @@ const PostCard = ({post}) => {
                     <p><MoreHorizSharpIcon/></p>
                 </div>
             </div>
-
-            {/* <p>{props.post.url}</p> */}
         </div>
     )
 }

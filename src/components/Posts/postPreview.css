@@ -1,0 +1,32 @@
+.post-preview {
+    /* margin: 2% auto; */
+    width: 100%;
+    background-color: var(--white);
+    box-shadow: 0em 1em 0.7em var(--shadow);
+}
+
+.nsfw-image img {
+    filter: var(--nsfw);
+}
+
+.post-preview img {
+    width: 100%;
+    height: auto;
+}
+
+.post-preview-thumbnail {
+    margin-right: 5%;
+}
+
+.post-preview-thumbnail img {
+    height: 128px;
+    width: 128px;
+    object-fit: cover;
+}
+
+@media only screen and (max-width: 800px) {
+    .post-preview-thumbnail {
+        display: none;
+    }
+
+}

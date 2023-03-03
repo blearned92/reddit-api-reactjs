@@ -1,20 +1,2 @@
 .home h1{
-    padding-top: 30px;
-}
-
-.home-content {
-    width: 90%;
-    display: flex;
-    justify-content: center;
-    margin: auto;
-}
-
-.home-right {
-    width: 300px;
-    margin: 10px;
-}
-
-.home-left {
-    width: 570px;
-    margin: 10px;
 }

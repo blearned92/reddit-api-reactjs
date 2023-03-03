@@ -22,7 +22,6 @@ const SearchBar = () => {
             if(term){
                 const response = await Reddit.fetchSearchResults(term);
                 const newResults = {searchResults: response}
-                console.log(newResults)
                 dispatch(setSearchResults(newResults))
             }
         }
@@ -93,7 +92,7 @@ const SearchBar = () => {
                     {github && 
                         <Link to="https://github.com/blearned92/reddit-api-reactjs">
                             <div className="search-menu-link">
-                                GitHub
+                                <GitHubIcon/> GitHub
                             </div>
                         </Link>}
                 </div>

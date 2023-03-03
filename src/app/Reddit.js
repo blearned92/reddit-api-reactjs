@@ -172,7 +172,6 @@ const RedditCall = {
                 if (!jsonResponse) {
                     return [];
                 }
-                console.log(jsonResponse.data.children);
                 return jsonResponse.data.children;
             })
     },

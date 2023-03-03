@@ -1,30 +1,29 @@
-import "./subReddit.css";
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { useDispatch,useSelector } from "react-redux";
 import { setPosts, selectPosts } from "../Posts/postsSlice";
 import Reddit from "../../app/Reddit";
 import Posts from "../Posts/posts";
-import Trending from "../Trending/trending";
-import AboutCommunity from "./about";
 import Banner from "./subRedditBanner";
+import { selectsubReddit, setsubReddit } from "./subRedditSlice";
 
 const SubReddit = () => {
     const {pathname} = useLocation();
     const dispatch = useDispatch();
     const posts = useSelector(selectPosts);
-    const [subReddit, setSubReddit] = useState({});
+    const subReddit = useSelector(selectsubReddit);
+    const [isLoading, setIsLoading] = useState(true);
 
     const fetchSubRedditPosts = async () => {
-        console.log(pathname)
+        setIsLoading(true);
         const posts = await Reddit.fetchSubredditPosts(pathname);
         dispatch(setPosts({posts: posts}))
+        setIsLoading(false);
     }
 
     const fetchSubRedditAbout = async () => {
         const response = await Reddit.fetchSubredditAbout(pathname.substring(0, pathname.length-1));
-        // console.log(response)
-        setSubReddit(response);
+        dispatch(setsubReddit({subReddit: response}))
     }
 
     useEffect(()=>{
@@ -32,24 +31,15 @@ const SubReddit = () => {
         fetchSubRedditAbout();
     }, [pathname])
 
-    return (
-    <div className="subReddit">
-        {console.log(subReddit)}
-        <Banner subReddit={subReddit}/>
-        <div className="home-content">
-            <div className="home-left">
-                {/* //hot/new/etc */}
-                <Posts posts={posts}/>
+    return (<>{
+        isLoading ? <p>Loading...</p>:
+        <div className="subReddit">
+            <div className="small-banner">
+                <Banner subReddit={subReddit}/>
             </div>
-            <div className="home-right">
-                <AboutCommunity subReddit={subReddit}/>
-                {/* //rules 
-                //related subreddits?*/}
-                <Trending/>
-            </div>
+            <Posts posts={posts}/>
         </div>
-    </div>
-    )
+    }</>)
 }
 
 export default SubReddit;

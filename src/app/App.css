@@ -1,0 +1,35 @@
+.content {
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+}
+
+.right {
+    width: 300px;
+    margin: 10px;
+}
+
+.left {
+    width: 570px;
+    margin: 10px;
+}
+
+@media only screen and (max-width: 800px) {
+    .right {
+        display: none;
+    }
+
+    .large-banner {
+        display: none;
+    }
+
+}
+
+@media only screen and (min-width: 800px) {
+
+    .small-banner {
+        display: none;
+    }
+
+}

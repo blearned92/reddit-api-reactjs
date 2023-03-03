@@ -1,7 +1,7 @@
 import Reddit from "../../app/Reddit";
 import { useDispatch, useSelector } from "react-redux";
 import { selectTrending, setTrending } from "./trendingSlice";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import TrendingCard from "./trendingCard";
 import "./trending.css";
@@ -11,6 +11,7 @@ const Trending = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const trending = useSelector(selectTrending);
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(()=>{
         async function fetchTrending(){
@@ -18,6 +19,7 @@ const Trending = () => {
             dispatch(setTrending({
                 trending: response
             }))
+            setIsLoading(false)
         }
         fetchTrending();
     },[])
@@ -27,16 +29,21 @@ const Trending = () => {
         navigate(sub.url)
     }
 
-    return(<div className="trending">
+    return(
+    <div className="trending">
         <h4 className="trending-featured">Featured Subreddits</h4>
-        { 
-            trending.map((sub, index)=>{
-                return(
-                    <div key={index} onClick={e => handleClick(e, sub.data)}><TrendingCard subReddit={sub}/></div>
-                )
-            })
-        }
-    </div>)
+        {isLoading ? <p>Loading...</p> : 
+        <>
+            { 
+                trending.map((sub, index)=>{
+                    return(
+                        <div key={index} onClick={e => handleClick(e, sub.data)}><TrendingCard subReddit={sub}/></div>
+                    )
+                })
+            }
+        </>}
+    </div>
+    )
 }
 
 export default Trending;

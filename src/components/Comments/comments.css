@@ -1,0 +1,55 @@
+.comment-section {
+    padding: .1px 0;
+    max-width: 800px;
+    width: 100%;
+    margin: auto;
+    box-shadow: 5px 1px 15px -5px black;
+    background-color: orangered;
+    border-radius: 3px;
+}
+
+.post-section {
+    /* border: 1px solid black; */
+    margin: 4px 0;
+    box-shadow: 5px 1px 15px -5px black;
+    border-radius: 10PX;
+}
+
+.post-section-header {
+    background-color: whitesmoke;
+    border-radius: 5px 5px 0 0;
+    display: flex;
+    padding: 7px 0px;
+}
+
+.post-section-header img {
+    width: 50px;
+    height: 50px;
+    border-radius: 100px;
+}
+
+.post-section-header .post-section-content{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.post-section-header .post-section-content p{
+    flex-direction: column;
+    margin: 0;
+}
+
+.post-section-body {
+    word-wrap: break-word;
+}
+
+.post-section-body h3{
+    margin: 5px 10px 0 10px;
+    padding: 0;
+}
+
+.post-section-body p{
+    word-wrap: break-word;
+    /* margin: 20px; */
+}
