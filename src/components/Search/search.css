@@ -146,7 +146,9 @@
     align-items: center;
     background-color: gray;
     border-radius: 0 0 5px 5px;
-    box-shadow: 1px 8px 15px 0px black;
+    box-shadow: 5px 1px 15px -5px black;
+    border: 1px solid black;
+    border-top: 0px;
     color: white;
     z-index: 100;
     padding: 5px;

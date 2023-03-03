@@ -7,15 +7,17 @@ import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import ShareSharpIcon from '@mui/icons-material/ShareSharp';
 import BookmarkSharpIcon from '@mui/icons-material/BookmarkSharp';
 import MoreHorizSharpIcon from '@mui/icons-material/MoreHorizSharp';
-import { useNavigate } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 import PostPreview from "./postPreview";
 import { roundTime } from "../../helper/timeCalc";
+import { Link } from "react-router-dom";
 
 const PostCard = ({post}) => {
 
     const [subRedditIcon, setSubRedditIcon] = useState(''); 
     const subredditName = post.subreddit_name_prefixed;
     const navigate = useNavigate();
+    const {pathname} = useLocation();
 
     useEffect(()=>{
         async function fetchSubRedditAbout(){
@@ -25,8 +27,8 @@ const PostCard = ({post}) => {
         fetchSubRedditAbout();
     },[subredditName])
 
-    const handleCommentClick = async (e) => {
-        navigate(post.permalink);
+    const handleClick = async (e, link) => {
+        navigate(link);
     }
 
     return (
@@ -38,7 +40,7 @@ const PostCard = ({post}) => {
                     : <img src={logo}/>
                 }
                 <div className="postCard-content">
-                    <p>{post.subreddit_name_prefixed}</p>
+                    <Link to={post.subreddit_name_prefixed}><p>{post.subreddit_name_prefixed}</p></Link>
                     <p>u/{post.author} &#9702; {roundTime(post.created_utc)}</p>
                 </div>
             </div>
@@ -53,7 +55,7 @@ const PostCard = ({post}) => {
                     <ArrowDownwardIcon style={{height: 14}}/>
                 </i>
                 <div className="postCard-footer-links">
-                    <p onClick={handleCommentClick}><ChatBubbleSharpIcon style={{height: 18}}/>{post.num_comments} Comments</p>
+                    <p onClick={(e)=>handleClick(e, post.permalink)}><ChatBubbleSharpIcon style={{height: 18}}/>{post.num_comments} Comments</p>
                     <p><ShareSharpIcon/></p>
                     <p><BookmarkSharpIcon/></p>
                     <p><MoreHorizSharpIcon/></p>

@@ -22,19 +22,23 @@ const Comment = ({index, comment, postAuthor}) => {
     }
 
     const generateCommentCardJSX = (comment) => {
+
         return(
             <div className="comment" key={comment.author + comment.created}>
-                <div className="comment-header">
-                    <p className="comment-author" id={comment.author + comment.created} onClick={handleClick}>
+                <div className="comment-content">
+                    <p className="comment-header" id={comment.author + comment.created} onClick={handleClick}>
                         <b>u/{comment.author} </b>
                         {comment.distinguished && <b style={{color: "#22dd53"}}>MOD </b>} 
                         {comment.author === postAuthor && <b style={{color: "blue"}}>OP </b>}
                         &#9702; {roundTime(comment.created)}
                     </p>
-                    <p className="comment-body">{comment.body}</p>
+                    <div className="comment-body">
+                        <p>{comment.body}</p>
+                    </div>
                     <div className="comment-footer">
                         <p>{comment.score} Updoots</p>
                     </div>
+                   
                     {comment.replies && comment.replies.data.children.map((reply)=>{
                         if(reply.data.author){
                             return(generateCommentCardJSX(reply.data));
@@ -47,7 +51,7 @@ const Comment = ({index, comment, postAuthor}) => {
     }
 
     return(
-        <div className="comment-wrapper" key={index}>
+        <div className="comment-chain-wrapper" key={index}>
             {generateCommentCardJSX(comment)}
         </div>
     )

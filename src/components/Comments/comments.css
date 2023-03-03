@@ -1,15 +1,11 @@
-.comment-section {
-    padding: .1px 0;
-    max-width: 800px;
+.comments-wrapper {
     width: 100%;
-    margin: auto;
-    box-shadow: 5px 1px 15px -5px black;
-    background-color: orangered;
-    border-radius: 3px;
 }
 
 .post-section {
     /* border: 1px solid black; */
+    /* max-width: 800px; */
+    width: 100%;
     margin: 4px 0;
     box-shadow: 5px 1px 15px -5px black;
     border-radius: 10PX;
