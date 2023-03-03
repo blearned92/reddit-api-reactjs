@@ -6,7 +6,7 @@
     /* border: 1px solid black; */
     /* max-width: 800px; */
     width: 100%;
-    margin: 4px 0;
+    /* margin: 4px 0; */
     box-shadow: 5px 1px 15px -5px black;
     border-radius: 10PX;
 }
@@ -15,7 +15,7 @@
     background-color: whitesmoke;
     border-radius: 5px 5px 0 0;
     display: flex;
-    padding: 7px 0px;
+    /* padding: 10px; */
 }
 
 .post-section-header img {

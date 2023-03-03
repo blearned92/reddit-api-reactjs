@@ -1,5 +1,6 @@
 import "./comment.css";
 import { roundTime } from "../../helper/timeCalc";
+import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 
 const Comment = ({index, comment, postAuthor}) => {
 
@@ -21,7 +22,12 @@ const Comment = ({index, comment, postAuthor}) => {
         self.style.display = "block";
     }
 
-    const generateCommentCardJSX = (comment) => {
+    const calculateWidth = () => {
+
+    }
+
+    const generateCommentCardJSX = (comment, body) => {
+
 
         return(
             <div className="comment" key={comment.author + comment.created}>
@@ -33,7 +39,7 @@ const Comment = ({index, comment, postAuthor}) => {
                         &#9702; {roundTime(comment.created)}
                     </p>
                     <div className="comment-body">
-                        <p>{comment.body}</p>
+                        <ReactMarkdown>{comment.body}</ReactMarkdown>
                     </div>
                     <div className="comment-footer">
                         <p>{comment.score} Updoots</p>
@@ -41,7 +47,7 @@ const Comment = ({index, comment, postAuthor}) => {
                    
                     {comment.replies && comment.replies.data.children.map((reply)=>{
                         if(reply.data.author){
-                            return(generateCommentCardJSX(reply.data));
+                            return(generateCommentCardJSX(reply.data, reply.data.body));
                         }
                     })}
 
@@ -52,7 +58,7 @@ const Comment = ({index, comment, postAuthor}) => {
 
     return(
         <div className="comment-chain-wrapper" key={index}>
-            {generateCommentCardJSX(comment)}
+            {generateCommentCardJSX(comment, comment.body)}
         </div>
     )
 }

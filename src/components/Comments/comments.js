@@ -5,6 +5,7 @@ import "./comments.css";
 import Comment from "./comment";
 import PostPreview from "../Posts/postPreview";
 import { roundTime } from "../../helper/timeCalc";
+import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 
 const Comments = () => {
 
@@ -52,7 +53,9 @@ const Comments = () => {
                 </div>
                 <div className="post-section-body">
                     <h3 className="postCard-body-title">{post.title}</h3>
-                    <p>{post.selftext}</p>
+                    <ReactMarkdown>
+                        {post.selftext}
+                    </ReactMarkdown>
                 </div>
                 <PostPreview post={post}/>
                 <div className="post-section-footer">

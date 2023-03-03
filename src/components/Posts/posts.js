@@ -1,10 +1,9 @@
-import "./posts.css";
 import PostCard from "./postCards";
 
 const Posts = ({posts}) => {
 
     console.log(posts)
-    return(<div className="posts">
+    return(<div>
     {
         posts.map((post, index)=>{
             return(<div key={index}><PostCard post={post.data}/></div>)

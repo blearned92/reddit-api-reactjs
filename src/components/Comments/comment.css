@@ -1,17 +1,15 @@
 .comment-section {
-    padding: 0 0 .1px 0;
+    /* padding: 0 0 .1px 0;
     max-width: 800px;
     
     width: 100%;
     box-shadow: 5px 1px 15px -5px black;
     background-color: orangered;
-    border-radius: 5px;
+    border-radius: 10px; */
 }
 
 .comment-chain-wrapper {
-    padding: 0 10px;
     margin: 5px 0;
-    padding: 0;
     box-shadow: 5px 1px 15px -5px black;
     border-radius: 5px;
     background-color: whitesmoke;
@@ -22,7 +20,6 @@
     padding: 0 10px;
     text-align: left;
     display: flex;
-    /* width: 100%; */
     width: calc(100% - 12px);
     border-left: 2px solid gray;
 }
@@ -49,8 +46,9 @@
 }
 
 .comment-body {
-    word-break: break-all;
-    margin: 5px 7px;
+    width: calc(100% - 12px);
+    word-break: break-word;
+    /* margin: 5px 7px; */
 }
 
 .comment-footer {
