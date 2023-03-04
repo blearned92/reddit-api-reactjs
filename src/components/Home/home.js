@@ -12,15 +12,14 @@ const Home = () => {
     const posts = useSelector(selectPosts);
     const [isLoading, setIsLoading] = useState(true);
 
-    const fetchSubRedditPosts = async () => {
-        const posts = await Reddit.fetchHomePosts();
-        dispatch(setPosts({posts: posts}))
-        setIsLoading(false);
-    }
-
     useEffect(()=>{
+        const fetchSubRedditPosts = async () => {
+            const posts = await Reddit.fetchHomePosts();
+            dispatch(setPosts({posts: posts}))
+            setIsLoading(false);
+        }
         fetchSubRedditPosts();
-    })
+    }, [dispatch])
 
     return (<>{
         isLoading ? <p>Loading...</p> :

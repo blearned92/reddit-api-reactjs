@@ -24,7 +24,7 @@ const PostCard = ({post}) => {
             setSubRedditIcon(response.icon_img);
         }
         fetchSubRedditAbout();
-    },[subredditName])
+    })
 
     const handleClick = async (e, link) => {
         navigate(link);

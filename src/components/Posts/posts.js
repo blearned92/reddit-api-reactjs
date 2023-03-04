@@ -2,7 +2,6 @@ import PostCard from "./postCards";
 
 const Posts = ({posts}) => {
 
-    console.log(posts)
     return(<div>
     {
         posts.map((post, index)=>{

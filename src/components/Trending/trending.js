@@ -22,7 +22,7 @@ const Trending = () => {
             setIsLoading(false)
         }
         fetchTrending();
-    })
+    }, [dispatch])
 
     const handleClick = (e, sub) => {
         console.log(sub.url)

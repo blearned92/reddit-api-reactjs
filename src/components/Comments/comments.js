@@ -35,7 +35,7 @@ const Comments = () => {
         fetchComments();
         fetchPost();
         fetchSubRedditAbout();
-    })
+    },[id, subRedditUrl])
 
     return(<>{
         isLoading ? <p>Loading...</p> :

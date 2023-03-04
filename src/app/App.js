@@ -17,7 +17,7 @@ import { useSelector } from "react-redux";
 
 function App() {
 
-  window.scrollTo(0, 0);
+  // window.scrollTo(0, 0);
   const subReddit = useSelector(selectsubReddit);
 
   return (
