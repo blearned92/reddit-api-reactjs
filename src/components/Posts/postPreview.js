@@ -1,5 +1,4 @@
 import ReactPlayer from "react-player";
-import { Link } from "react-router-dom";
 import "./postPreview.css";
 
 const PostPreview = ({post}) => {
