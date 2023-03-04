@@ -22,8 +22,8 @@ const Banner = ({subReddit}) => {
         }
         <div className="title">
             {subReddit.community_icon ?
-                <img className="icon" src={subReddit.community_icon.split("?")[0]}/>
-                : <img className="icon" src={subReddit.icon_img}/>
+                <img className="icon" alt="SubReddit Banner" src={subReddit.community_icon.split("?")[0]}/>
+                : <img className="icon" alt="SubReddit Banner" src={subReddit.icon_img}/>
             }
             <div className="titles">
                 <h1>{subReddit.title}</h1>

@@ -26,7 +26,7 @@ const SearchBar = () => {
             }
         }
         getSearchResults();
-    }, [term])
+    }, [term, dispatch])
 
     const handleChange = (e) => {
         const newTerm = e.target.value;
@@ -60,7 +60,7 @@ const SearchBar = () => {
         <div className="search-wrapper">
             <header className="search">
                 <div className="search-logo-title" onClick={navigateHome}>
-                    <img className="search-home-logo" src={Logo}/>
+                    <img alt="Site Logo" className="search-home-logo" src={Logo}/>
                 </div>
                 <div className="search-container">
                     <div className="searchbar" style={checkPotentialSubReddits()}>
@@ -75,8 +75,8 @@ const SearchBar = () => {
                                     <div key={index}>
                                         {
                                         subReddit.data.community_icon.split("?")[0] ?
-                                        <img src={subReddit.data.community_icon.split("?")[0]}/>
-                                        : <img src={subReddit.data.icon_img}/>
+                                        <img alt="Community Icon" src={subReddit.data.community_icon.split("?")[0]}/>
+                                        : <img alt="Community Icon" src={subReddit.data.icon_img}/>
                                         }
                                         <button onClick={e => handleClick(e, subReddit.data)}>
                                             {subReddit.data.url}

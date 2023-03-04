@@ -35,7 +35,7 @@ const Comments = () => {
         fetchComments();
         fetchPost();
         fetchSubRedditAbout();
-    },[])
+    })
 
     return(<>{
         isLoading ? <p>Loading...</p> :
@@ -43,8 +43,8 @@ const Comments = () => {
             <div className="post-section">
                 <div className="post-section-header">
                     {subReddit.community_icon ?
-                        <img className="icon" src={subReddit.community_icon.split("?")[0]}/>
-                        : <img className="icon" src={subReddit.icon_img}/>
+                        <img alt="SubReddit Icon" className="icon" src={subReddit.community_icon.split("?")[0]}/>
+                        : <img alt="SubReddit Icon" className="icon" src={subReddit.icon_img}/>
                     }                
                     <div className="post-section-content">
                         <p>{post.subreddit_name_prefixed}</p>

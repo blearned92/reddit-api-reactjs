@@ -7,7 +7,7 @@ import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import ShareSharpIcon from '@mui/icons-material/ShareSharp';
 import BookmarkSharpIcon from '@mui/icons-material/BookmarkSharp';
 import MoreHorizSharpIcon from '@mui/icons-material/MoreHorizSharp';
-import { useLocation, useNavigate } from "react-router";
+import { useNavigate } from "react-router";
 import PostPreview from "./postPreview";
 import { roundTime } from "../../helper/timeCalc";
 import { Link } from "react-router-dom";
@@ -17,7 +17,6 @@ const PostCard = ({post}) => {
     const [subRedditIcon, setSubRedditIcon] = useState(''); 
     const subredditName = post.subreddit_name_prefixed;
     const navigate = useNavigate();
-    const {pathname} = useLocation();
 
     useEffect(()=>{
         async function fetchSubRedditAbout(){
@@ -36,8 +35,8 @@ const PostCard = ({post}) => {
             <div className="postCard-header">
                 {
                     subRedditIcon ? 
-                    <img src={subRedditIcon}/>
-                    : <img src={logo}/>
+                    <img alt="SubReddit Icon" src={subRedditIcon}/>
+                    : <img alt="SubReddit Icon" src={logo}/>
                 }
                 <div className="postCard-content">
                     <Link to={post.subreddit_name_prefixed}><p>{post.subreddit_name_prefixed}</p></Link>

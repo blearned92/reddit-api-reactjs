@@ -22,11 +22,7 @@ const Comment = ({index, comment, postAuthor}) => {
         self.style.display = "block";
     }
 
-    const calculateWidth = () => {
-
-    }
-
-    const generateCommentCardJSX = (comment, body) => {
+    const generateCommentCardJSX = (comment) => {
 
 
         return(
@@ -48,7 +44,8 @@ const Comment = ({index, comment, postAuthor}) => {
                     {comment.replies && comment.replies.data.children.map((reply)=>{
                         if(reply.data.author){
                             return(generateCommentCardJSX(reply.data, reply.data.body));
-                        }
+                        } 
+                        return <div></div>
                     })}
 
                 </div>
@@ -58,7 +55,7 @@ const Comment = ({index, comment, postAuthor}) => {
 
     return(
         <div className="comment-chain-wrapper" key={index}>
-            {generateCommentCardJSX(comment, comment.body)}
+            {generateCommentCardJSX(comment)}
         </div>
     )
 }

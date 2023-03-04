@@ -20,7 +20,7 @@ const Home = () => {
 
     useEffect(()=>{
         fetchSubRedditPosts();
-    }, [])
+    })
 
     return (<>{
         isLoading ? <p>Loading...</p> :

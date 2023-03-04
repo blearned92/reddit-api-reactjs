@@ -29,7 +29,7 @@ const SubReddit = () => {
     useEffect(()=>{
         fetchSubRedditPosts();
         fetchSubRedditAbout();
-    }, [pathname])
+    })
 
     return (<>{
         isLoading ? <p>Loading...</p>:
