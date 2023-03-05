@@ -3,19 +3,15 @@
 }
 
 .post-section {
-    /* border: 1px solid black; */
-    /* max-width: 800px; */
-    width: 100%;
-    /* margin: 4px 0; */
-    box-shadow: 5px 1px 15px -5px black;
+    margin: 4px 0;
     border-radius: 10PX;
+    box-shadow: 5px 1px 15px -5px black;
 }
 
 .post-section-header {
     background-color: whitesmoke;
     border-radius: 5px 5px 0 0;
     display: flex;
-    /* padding: 10px; */
 }
 
 .post-section-header img {
@@ -38,14 +34,15 @@
 
 .post-section-body {
     word-wrap: break-word;
+    padding: 20px;
+    text-align: left;
 }
 
 .post-section-body h3{
-    margin: 5px 10px 0 10px;
+    margin: 0;
     padding: 0;
 }
 
 .post-section-body p{
     word-wrap: break-word;
-    /* margin: 20px; */
 }

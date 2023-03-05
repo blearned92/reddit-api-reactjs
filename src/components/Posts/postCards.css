@@ -30,6 +30,15 @@
     margin: 0;
 }
 
+.postCard-link {
+    text-decoration: underline;
+}
+
+.postCard-link:hover {
+    color:orangered;
+    cursor: pointer;
+}
+
 .postCard-post-image img{
     width: 100px;
     height: 100px;
@@ -40,6 +49,7 @@
     padding: 0 15px;
     margin: 5px;
     font-weight: 500;
+    word-break: break-word;
 }
 
 .postCard-footer {

@@ -17,15 +17,14 @@ const SubReddit = () => {
     
     useEffect(()=>{
         const fetchSubRedditPosts = async () => {
-            setIsLoading(true);
             const posts = await Reddit.fetchSubredditPosts(pathname);
             dispatch(setPosts({posts: posts}))
-            setIsLoading(false);
         }
         
         const fetchSubRedditAbout = async () => {
             const response = await Reddit.fetchSubredditAbout(pathname.substring(0, pathname.length-1));
             dispatch(setsubReddit({subReddit: response}))
+            setIsLoading(false);
         }
         fetchSubRedditPosts();
         fetchSubRedditAbout();
