@@ -1,0 +1,36 @@
+.post-filter-wrapper {
+    width: 100%;
+    margin: 10px 0;
+    box-shadow: 5px 1px 15px -5px black;
+    border-radius: 5px;
+    background-color: #334756;
+    color: #FF4C29;
+}
+
+.post-filter-choice-list {
+    list-style-type: none;
+    display: flex;
+    padding: 5px;
+    font-size: 20px;
+}
+
+
+.post-filter-list-item:hover {
+    color: #FF4C29;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.post-filter-list-item {
+    padding: 10px;
+    margin: 0 10px;
+    color: white;
+}
+
+.post-filter-list-item-active {
+    padding: 10px;
+    margin: 0 5px;
+    background-color: #FF4C29;
+    color: #334756;
+    border-radius: 5px;
+}

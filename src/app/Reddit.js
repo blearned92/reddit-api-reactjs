@@ -7,7 +7,7 @@ export const initialOptions = {
 };
 
 
-const RedditCall = {
+const Reddit = {
     async fetchTrendingSubreddits() {
         return fetch(`${API}/reddits.json`, initialOptions)
             .then(response => {
@@ -121,7 +121,7 @@ const RedditCall = {
     },
 
     async fetchSubredditPostsHot(rterm) {
-        return fetch(`${API}/${rterm}/hot.json`, initialOptions)
+        return fetch(`${API}${rterm}hot.json`, initialOptions)
             .then(response => {
                 if (response.ok) {
                     return response.json();
@@ -135,7 +135,7 @@ const RedditCall = {
     },
 
     async fetchSubredditPostsRising(rterm) {
-        return fetch(`${API}/${rterm}/rising/.json`, initialOptions)
+        return fetch(`${API}${rterm}rising/.json`, initialOptions)
             .then(response => {
                 if (response.ok) {
                     return response.json();
@@ -149,7 +149,7 @@ const RedditCall = {
     },
 
     async fetchSubredditPostsNew(rterm) {
-        return fetch(`${API}/${rterm}/new/.json`, initialOptions)
+        return fetch(`${API}${rterm}new/.json`, initialOptions)
             .then(response => {
                 if (response.ok) {
                     return response.json();
@@ -177,4 +177,4 @@ const RedditCall = {
     },
 }
 
-export default RedditCall;
+export default Reddit;

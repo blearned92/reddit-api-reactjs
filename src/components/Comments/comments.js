@@ -3,11 +3,16 @@ import { useLocation } from "react-router";
 import Reddit from "../../app/Reddit";
 import "./comments.css";
 import Comment from "./comment";
-import PostPreview from "../Posts/postPreview";
+import PostPreview from "../Posts/postPreview/postPreview";
 import { roundTime } from "../../helper/timeCalc";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 import { useDispatch, useSelector } from "react-redux";
 import { setsubReddit, selectsubReddit } from "../SubReddit/subRedditSlice";
+import ChatBubbleSharpIcon from '@mui/icons-material/ChatBubbleSharp';import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
+import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
+import ShareSharpIcon from '@mui/icons-material/ShareSharp';
+import BookmarkSharpIcon from '@mui/icons-material/BookmarkSharp';
+import MoreHorizSharpIcon from '@mui/icons-material/MoreHorizSharp';
 
 const Comments = () => {
 
@@ -64,7 +69,19 @@ const Comments = () => {
                 </div>
                 <PostPreview post={post}/>
                 <div className="post-section-footer">
-                    <p>footer</p>
+                <div className="postCard-footer">
+                <i>
+                    <ArrowUpwardIcon style={{height: 14}}/>
+                    {post.score > 1000 ? (post.score / 1000).toFixed(1) + 'k' : post.score}
+                    <ArrowDownwardIcon style={{height: 14}}/>
+                </i>
+                <div className="postCard-footer-links">
+                    <p><ChatBubbleSharpIcon style={{height: 18}}/>{post.num_comments} Comments</p>
+                    <p><ShareSharpIcon/></p>
+                    <p><BookmarkSharpIcon/></p>
+                    <p><MoreHorizSharpIcon/></p>
+                </div>
+            </div>
                 </div>
             </div>
             <div className="comment-section">
