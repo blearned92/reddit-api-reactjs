@@ -1,5 +1,4 @@
 .comment-section { 
-     /* margin: 4px 0; */
     border-radius: 10PX;
 }
 
@@ -22,27 +21,15 @@
 }
 
 .comment-content {
-    /* border: 2px solid black; */
     width: 100%;
-    /* display: inline; */
-    /* border-radius: 10px; */
-    /* width: 100%; */
-    /* margin: auto; */
 }
-
-/* .comment-header {
-    margin: 10px;
-} */
 
 .comment p {
     margin: 0;
     padding: 0;
-    /* width: 100%; */
 }
 
 .comment:first-child{
-    /* margin: 0px; */
-    /* padding: 0px; */
     border-left: none;
 }
 
@@ -54,10 +41,8 @@
 
 .comment-footer {
     text-align: right;
-    padding: 0 10px;
-    /* border: 2px solid black; */
-    /* margin: 0; */
-    color: orangered;    
+    margin: 0 5px 10px 5px;
+    color: red;    
 }
 
 .comment-header {
