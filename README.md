@@ -15,8 +15,8 @@
 
 **Technologies:** 
 - Reddit API (for API calls of Reddit's public data)
-- ReactJS version 18.2.0
-- React Router Dom version 6.8.1
+- ReactJS version 18.2.0 (Framework)
+- React Router Dom version 6.8.1 (Path routing for render components based upon url location paths)
 - React Redux version 8.0.5 with ReduxJS Toolkit version 1.9.3 (for state management)
 - React Markdown version 8.0.5 (for parsing markdown text returned by the reddit api)
 - React-player version 2.11.2 (for video rendering)
