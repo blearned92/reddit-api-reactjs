@@ -1,15 +1,15 @@
-import "./postCards.css";
+import "./postCard.css";
 import { useEffect, useState } from "react";
-import Reddit from "../../app/Reddit";
-import logo from "../../images/reddit-logo.png";
+import Reddit from "../../../app/Reddit";
+import logo from "../../../images/reddit-logo.png";
 import ChatBubbleSharpIcon from '@mui/icons-material/ChatBubbleSharp';import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import ShareSharpIcon from '@mui/icons-material/ShareSharp';
 import BookmarkSharpIcon from '@mui/icons-material/BookmarkSharp';
 import MoreHorizSharpIcon from '@mui/icons-material/MoreHorizSharp';
 import { useLocation, useNavigate } from "react-router";
-import PostPreview from "./postPreview";
-import { roundTime } from "../../helper/timeCalc";
+import PostPreview from "../postPreview/postPreview";
+import { roundTime } from "../../../helper/timeCalc";
 
 const PostCard = ({post}) => {
 
