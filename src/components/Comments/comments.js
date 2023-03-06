@@ -6,14 +6,18 @@ import Comment from "./comment";
 import PostPreview from "../Posts/postPreview";
 import { roundTime } from "../../helper/timeCalc";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
+import { useDispatch, useSelector } from "react-redux";
+import { setsubReddit, selectsubReddit } from "../SubReddit/subRedditSlice";
 
 const Comments = () => {
 
     const location = useLocation();
+    const dispatch = useDispatch();
     const subRedditUrl = location.pathname.split("/comments/")[0];
     const id = location.pathname.split("/comments/")[1];
+    // const [subReddit, setSubReddit] = useState({});
+    const subReddit = useSelector(selectsubReddit)
     const [comments, setComments] = useState([]);
-    const [subReddit, setSubReddit] = useState({});
     const [isLoading, setIsLoading] = useState(true);
     const [post, setPost] = useState({});
 
@@ -30,12 +34,13 @@ const Comments = () => {
         }
         async function fetchSubRedditAbout() {
             const response = await Reddit.fetchSubredditAbout(subRedditUrl);
-            setSubReddit(response);
+            dispatch(setsubReddit({subReddit: response}))
+            // setSubReddit(response);
         }
         fetchComments();
         fetchPost();
         fetchSubRedditAbout();
-    },[id, subRedditUrl])
+    },[id, subRedditUrl, dispatch])
 
     return(<>{
         isLoading ? <p>Loading...</p> :
