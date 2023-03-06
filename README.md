@@ -14,6 +14,7 @@
 **How to use:** This project is not meant for personal use of the code contained within it, and is purely a project for my own growth as a developer, so, in turn, I do not intend to collaborate with other on it at this time. However, should you want to build on this project as your own, feel free to fork this repository, clone it to a local repository, and run the command ''npm install'' to install all node packages (ensure you have Node installed on your machine first). Run ''npm start'' and begin adding or changing any features. To view this project in a browser, please visit [https://redditforlurkers.netlify.app](https://redditforlurkers.netlify.app).
 
 **Technologies:** 
+- Reddit API (for API calls of Reddit's public data)
 - ReactJS version 18.2.0
 - React Router Dom version 6.8.1
 - React Redux version 8.0.5 with ReduxJS Toolkit version 1.9.3 (for state management)
